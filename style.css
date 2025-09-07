@@ -1,0 +1,48 @@
+body{
+    background-color: #040714;
+    color: #fff;
+}
+
+#accueil{ 
+    text-align: center;
+    font-family: Inspire;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #040714; /* fond sombre */
+  color: #fff; /* texte blanc */
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+thead th {
+  padding: 15px;
+  border-bottom: 2px solid #333;
+  font-size: 1.1em;
+}
+
+tbody td {
+  padding: 15px;
+  border-top: 1px solid #333;
+}
+
+tbody td:first-child {
+  text-align: left;
+  font-weight: 500;
+  color: #ccc;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #1f80e0; /* bleu hover */
+}
+
+table th:nth-child(4), table td:nth-child(4){
+    background-color: #1D1F2B;
+}
