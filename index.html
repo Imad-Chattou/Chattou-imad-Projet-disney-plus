@@ -1,103 +1,340 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DisneyPlus - Page d'accueil</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon-V1.png"
 </head>
 
-<body>
-<header>
-    <button style="color: #061416;">S'identifier</button>
-</header>
 
-   <div style="position: relative;"></div> <!--Pour la position et le responsive design-->
-        <!-- Section principale -->
-  <main id="main-section">
-    <div id="accueil">
-    <h1>Nouvelles productions originales, grands films, séries cultes et encore + en streaming</h1>
-    <p>Sans coût additionnel. Sans engagement.* </p>
-    <label for="email">Entrer votre address e-mail pour commencer ou réactiver votre .</label>
-    <button data-testid="email_form_submit_button" type="submit" style="font-weight: normal; background: rgb(2, 214, 232); color: rgb(2, 23, 42);">
-        <span>S'INSCRIRE</span>
-    </button>
-    <p>Profitez de 12 mois au prix de 10 avec un abonnement Prenium ou Standard annuel. Économies par rapport à un an d'abonnement mensuel.</p>
-    <p>* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis.</p>
-    <p>Becoming Karl Lagerfeld en streaming dès le 7 juin.</p>
+<section class="page-accueil">
+    <header class="header-identification">
+        <a href="https://www.disneyplus.com/fr-fr/identity/login" class="btn-identification">S'IDENTIFIER</a>
+    </header>
+    <main class="contenu-principal">
+        <div class="message-central">
+            <h1>Nouvelles productions originales, grands films,<br>séries cultes et encore + en streaming</h1>
+            
+            <p class="slogan">Sans coût additionnel. Sans engagement.*</p>
 
-    <button aria-label="Down Arrow" type="button" ><a href=""></a></button>
+            <p class="instruction">Entrez votre adresse e-mail pour commencer ou réactiver votre abonnement.</p>
+            
+            <form class="formulaire-email">
+                <input type="email" id="email-address" placeholder="Adresse e-mail" required>
+                <button type="submit" class="btn-inscription">S'INSCRIRE</button>
+            </form>
+            
+            <p class="offre-speciale">Profitez de 12 mois au prix de 10 avec un abonnement Premium ou Standard annuel. Économies par rapport à un an d'abonnement mensuel.</p>
 
+            <div class="notes-bas-de-page">
+                <p>* La résiliation prend effet à la fin de la période d'abonnement en cours. Abonnement requis. 6,99 €/mois pour Standard avec pub.</p>
+                <p>Becoming Karl Lagerfeld en streaming dès le 7 juin.</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="scroll-down">
+        <a href="#disney" class="arrow-down">&#x2304;</a>
     </div>
+</section>
 
-    <div id="diney+"> 
+
+  <section class="disney" id="disney">
+    <div>
       <h2>Seulement sur Disney+</h2>
       <p>Des séries et productions originales exclusives que vous ne trouverez sur aucun autre service de streaming</p>
       <p>© 2023 TAS Rights Management LLC</p>
     </div>
+  </section>
 
-    <div id="abonnement">
-      <h2>Sélectionnez votre abonnement</h2>
-      <section>
-        <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Standard</th>
-      <th>Standard sans pub</th>
-      <th>Premium</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Profitez de 12 mois au prix de 10*</td>
-      <td>-</td>
-      <td><a href="https://www.disneyplus.com/fr-fr/identity/sign-up/enter-email?pref=disney_standard&duration=annual">89,90 € / an</a></td>
-      <td><a href="https://www.disneyplus.com/fr-fr/identity/sign-up?pref=disney_premium&duration=annual">119,90 € / an</a></td>
-    </tr>
-    <tr>
-      <td>Qualité vidéo jusqu'à</td>
-      <td>1080p Full HD</td>
-      <td>1080p Full HD</td>
-      <td>4K Ultra HD et HDR</td>
-    </tr>
-    <tr>
-      <td>Lectures simultanées</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Téléchargements</td>
-      <td>-</td>
-      <td>✔</td>
-      <td>✔</td>
-    </tr>
-    <tr>
-      <td>Prise en charge de Dolby Atmos</td>
-      <td>-</td>
-      <td>-</td>
-      <td>✔</td>
-    </tr>
-    <tr>
-      <td>Streaming sans publicité**</td>
-      <td>-</td>
-      <td>✔</td>
-      <td>✔</td>
-    </tr>
-  </tbody>
-</table>
+ <section class="Abonnement">
+    <div class="abonnement-container">
+        <h2>Sélectionnez votre abonnement</h2>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Standard</th>
+                        <th>Standard sans pub</th>
+                        <th class="premium-col">Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="price-row">
+                        <td>Profitez de 12 mois au prix de 10*</td>
+                        <td>—</td>
+                        <td><a href="https://www.disneyplus.com/fr-fr/identity/sign-up/enter-email?pref=disney_standard&duration=annual">89,90 € / an</a></td>
+                        <td><a href="https://www.disneyplus.com/fr-fr/identity/sign-up?pref=disney_premium&duration=annual">119,90 € / an</a></td>
+                    </tr>
+                    <tr>
+                        <td>Qualité vidéo jusqu'à</td>
+                        <td>1080p Full HD</td>
+                        <td>1080p Full HD</td>
+                        <td>4K Ultra HD et HDR</td>
+                    </tr>
+                    <tr>
+                        <td>Lectures simultanées</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Téléchargements</td>
+                        <td>—</td>
+                        <td class="feature-check">✔</td>
+                        <td class="feature-check">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Prise en charge de Dolby Atmos</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="feature-check">✔</td>
+                    </tr>
+                    <tr>
+                        <td>Streaming sans publicité</td>
+                        <td>—</td>
+                        <td class="feature-check">✔</td>
+                        <td class="feature-check">✔</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
+        <div class="notes">
+            <p class="note-simple">* Économies par rapport à un an d'abonnement mensuel.</p>
+            <p class="note-detail">** Tous les abonnements peuvent inclure : des publicités dans les contenus en direct (y compris les rediffusions) et les événements spéciaux, ainsi qu'avant et après la lecture des contenus ; des bandes-annonces ; la promotion des produits et services Disney ; des messages de parrainage ; et autres contenus promotionnels limités. La qualité vidéo et audio dépend du débit Internet, des performances de votre appareil et de la configuration de la plateforme. Cliquez ici pour vérifier les performances correspondant à votre installation. Certains contenus ne sont pas disponibles dans toutes les résolutions. En savoir plus.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+      <Section class="ADS">
+        <h3>Regarder selon vos envies</h3>
+        <p>Profitez des plus belles histoire au monde, partout et à tout moment.</p>
+        <div class="content-row">
+          <img src="img/original.jpeg" alt="Grey's Anatomy et autres séries" class="main-content-image">
+        </div>
+
+        <div class="benefits-row">
+          <div class="benefit-item">
+            <img src="img/logo-bobine-film.png">
+            <p>Un divertissement sans fin</p>
+            <p class="detail">Découvrez des milliers d'heures de séries, film et productions originales.</p>
+          </div>
+          <div class="benefit-item">
+            <img src="img/logo-ecran-couleur.png">
+            <p>Disponible sur vos appareils préférés</p>
+            <p class="detail">Utilisez jusqu'à 4 appareils compatibles en sumultané.</p>
+          </div>
+          <div class="benefit-item">
+            <img src="img/family.png">
+            <p>Un contrôle parental intuitif</p>
+            <p class="detail">Protégez votre famille avec un contrôle parental simple d'utilisation.</p>
+          </div>
+        </div>
+
+      </Section>
+
+      <section class="FAQ">
+        <h4>Questions fréquentes</h4>
+
+        <details>
+          <summary>Qu'est-ce que Disney+ ?</summary>
+          <div class="reponse-contenu">
+            <p>Disney+ est la destination des univers Disney, Pixar, Marvel, Star Wars, National Geographic, Star et
+              encore +.</p>
+          </div>
+        </details>
+
+
+        <div class="faq-liste">
+          <details open>
+            <summary>Que puis-je regarder sur Disney+ ?</summary>
+            <div class="reponse-contenu">
+              <p>Disney+ vous offre une collection d'histoires qui ne cesse de s'agrandir :</p>
+              <ul>
+                <li>Des séries et des films originaux exclusifs</li>
+                <li>Des classiques intemporels aux succès récents réalisés par Walt Disney Animation Studios</li>
+                <li>Toujours plus de divertissement avec des comédies, des drames, des histoires inspirées de faits
+                  réels et tant d'autres contenus</li>
+                <li>Des histoires émouvantes et pour tous les âges animées par les talentueux artistes de Pixar</li>
+                <li>Toute la saga Star Wars et une grande partie de l'univers cinématographique Marvel</li>
+                <li>Des documentaires National Geographic, sans oublier des productions spéciales et bien plus encore
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>Quel est le prix de l'abonnement Disney+ ?</summary>
+            <div class="reponse-contenu">
+              <p>Vous pouvez choisir parmi trois niveaux d'abonnement à Disney+ :</p>
+              <ul>
+                <li>Premium (15,99 €/mois ou 159,90 €/an) : Résolution jusqu'à 4K Ultra HD et HDR. 4 lectures
+                  simultanées. Téléchargements pour lecture hors ligne jusqu'à 10 appareils. Son Dolby Atmos sur les
+                  contenus compatibles. Films et séries sans publicité.</li>
+                <li> Standard (10,99 €/mois ou 109,90 €/an) : Résolution jusqu'à 1080p Full HD. 2 lectures
+                  simultanées. Téléchargements pour lecture hors ligne jusqu'à 10 appareils. Son surround 5.1 sur les
+                  contenus compatibles. Films et séries sans publicité.</li>
+                <li>Standard avec pub (6,99 €/mois) : Résolution jusqu'à 1080p Full HD. 2 lectures simultanées. Son
+                  surround 5.1 sur les contenus compatibles.</li>
+              </ul>
+
+              <p>À la fin de votre période d'abonnement, votre abonnement sera renouvelé automatiquement pour la même
+                période au tarif Premium alors en vigueur (actuellement ceux indiqués ci-dessus), sauf si vous le
+                résiliez avant ou si vous sélectionnez une autre offre.</p>
+              <p>Vous pouvez également offrir un an de Disney+ à un ami ou un membre de votre famille en cliquant <a
+                  href="https://www.disneyplus.com/fr-fr/welcome/gift-subscription">ici.</a></p>
+              <p>Tous les abonnements peuvent inclure : des publicités dans les contenus en direct (y compris les
+                rediffusions) et les événements spéciaux, ainsi qu'avant et après la lecture des contenus ; des
+                bandes-annonces ; la promotion des produits et services Disney ; des messages de parrainage ; et
+                autres contenus promotionnels limités. La qualité vidéo et audio dépend du débit Internet, des
+                performances de votre appareil et de la configuration de la plateforme.<a
+                  href="https://help.disneyplus.com/fr/article/disneyplus-video-quality/?utm_source=disneyplus&utm_medium=web&utm_campaign=faq-MLP&utm_content=video-quality">Cliquez
+                  ici</a> pour vérifier les performances correspondant à votre installation. Certains contenus ne sont
+                pas disponibles dans toutes les résolutions. <a
+                  href="https://help.disneyplus.com/fr/?utm_source=disneyplus&utm_medium=web&utm_campaign=emea-us-ca-homepage-faq&utm_content=home-page">En
+                  savoir plus</a>.</p>
+
+            </div>
+          </details>
+
+          <details>
+            <summary>Quels appareils et plateformes puis-je utiliser avec Disney+ ?</summary>
+            <div class="reponse-contenu">
+              <p>Disney+ est accessible sur mobiles, navigateurs Web, consoles de jeux, décodeurs TV et TV connectées.
+                Cliquez <a
+                  href="https://help.disneyplus.com/fr/article/disneyplus-devices-supported/?utm_source=disneyplus&utm_medium=web&utm_campaign=homepage-FAQ&utm_content=supported-devices">ici</a>
+                pour retrouver la liste complète des appareils compatibles.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>L'abonnement Disney+ comprend-il une durée d'engagement ?</summary>
+            <div class="reponse-contenu">
+              <p>Disney+ est sans engagement et vous pouvez annuler votre abonnement quand vous le souhaitez.
+                L'annulation sera effective à la fin de la période pour laquelle vous avez payé. Pour vous désabonner,
+                suivez ces 6 étapes:</p>
+              <ol>
+                <li>Identifiez-vous sur www.DisneyPlus.com</li>
+                <li>Sélectionnez votre profil</li>
+                <li>Sélectionnez Compte</li>
+                <li>Sélectionnez votre abonnement</li>
+                <li>Sélectionnez Résilier l'abonnement</li>
+                <li>Sélectionnez Continuer pour résilier</li>
+              </ol>
+              <p>Pour plus d'informations, cliquez <a
+                  href="https://help.disneyplus.com/fr/article/disneyplus-cancel/?utm_source=disneyplus&utm_medium=web&utm_campaign=homepage-FAQ&utm_content=disneyplus-cancel">ici</a>.
+              </p>
+            </div>
+          </details>
+        </div>
       </section>
 
+      <section class="appareils">
+    <div class="appareils-container">
+        <h2>Accessible sur vos appareils préférés</h2>
+        
+        <div class="appareils-row">
+            
+            <div class="appareil-item">
+                <img src="img/logo-television.png" alt="Icône télévision" class="appareil-icon">
+                <h3>Télévisions</h3>
+                <ul class="liste-appareils">
+                    <li>Amazon Fire TV</li>
+                    <li>Appareils Android TV</li>
+                    <li>Apple TV</li>
+                    <li>Chromecast</li>
+                    <li>TV LG</li>
+                    <li>Roku</li>
+                    <li>Samsung</li>
+                </ul>
+            </div>
+            
+            <div class="appareil-item">
+                <img src="img/logo-ecran-ordinateur.png" alt="Icône ordinateur" class="appareil-icon">
+                <h3>Ordinateurs</h3>
+                <ul class="liste-appareils">
+                    <li>Chrome OS</li>
+                    <li>MacOS</li>
+                    <li>PC Windows</li>
+                </ul>
+            </div>
+            
+            <div class="appareil-item">
+                <img src="img/logo-tablet.png" alt="Icône mobile" class="appareil-icon">
+                <h3>Mobiles et tablettes</h3>
+                <ul class="liste-appareils">
+                    <li>Tablettes Amazon Fire</li>
+                    <li>Mobiles et tablettes Android</li>
+                    <li>iPhone & iPad</li>
+                </ul>
+            </div>
+            
+            <div class="appareil-item">
+                <img src="img/logo-manette.png" alt="Icône console" class="appareil-icon">
+                <h3>Consoles de jeux</h3>
+                <ul class="liste-appareils">
+                    <li>PS4</li>
+                    <li>PS5</li>
+                    <li>Xbox One</li>
+                    <li>Xbox Series X</li>
+                    <li>Xbox Series S</li>
+                </ul>
+            </div>
+            
+        </div>
     </div>
+</section>
 
+
+
+
+</main>
+<footer>
+    <div class="footer-container">
+        
+        <div class="footer-logo">
+            <img src="img/image.png" alt="Disney+ Logo">
+        </div>
+        
+        <div class="footer-content">
+            
+            <ul class="footer-links-row">
+                <li class="language-selector">
+                    <a href="index_en.html">
+                        <i class="fas fa-globe"></i> Français 
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </li>
+                <li><a href="https://www.disneyplus.com/fr-fr/legal/conditions-g%C3%A9n%C3%A9rales-d'abonnement">Conditions générales d'abonnement</a></li>
+                <li><a href="https://www.disneyplus.com/fr-fr/legal/r%C3%A8gles-de-respect-de-la-vie-priv%C3%A9e">Règles de Respect de la Vie Privée</a></li>
+                <li><a href="https://www.disneyplus.com/fr-fr/legal/droits-donn%C3%A9es-dans-l'ue-et-au-r-u">Droits Données dans l'UE et au R-U</a></li>
+                <li><a href="https://www.disneyplus.com/fr-fr/legal/politique-de-cookies">Politique de cookies</a></li>
+            </ul>
+
+            <ul class="footer-links-row">
+                <li><a href="">Publicités ciblées par centres d'intérêt</a></li>
+                <li><a href="https://help.disneyplus.com/fr/article/disneyplus-devices-supported/?utm_source=disneyplus&utm_medium=web&utm_campaign=unauthenticated-site-footer&utm_content=supported-devices">Appareils compatibles</a></li>
+                <li><a href="https://help.disneyplus.com/fr/?utm_source=disneyplus&utm_medium=web&utm_campaign=unauthenticated-site-footer&utm_content=home-page">Aide</a></li>
+                <li><a href="https://help.disneyplus.com/fr/article/disneyplus-introduction">Offres Disney+</a></li>
+                <li><a href="https://help.disneyplus.com/article/disneyplus-introduction/?utm_source=disneyplus&utm_medium=web&utm_campaign=unauthenticated-site-footer&utm_content=introduction">À propos de Disney+</a></li>
+                <li><a href="#" class="privacy-settings">Gérer les préférences de confidentialité</a></li>
+            </ul>
+            
+            <p class="footer-note">Le contenu et les plateformes disponibles peuvent varier selon la zone géographique.</p>
+            <p class="footer-copyright">© 2024 Disney et ses sociétés affiliées. Tous droits réservés.</p>
+            
+        </div>
     </div>
-  
-  </main>
-
-  <footer>
-    <button id="language-btn">🌐 FR/EN</button>
-  </footer>
+</footer>
 </body>
+
 </html>
