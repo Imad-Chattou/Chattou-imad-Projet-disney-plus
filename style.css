@@ -1,323 +1,355 @@
-/* --- Styles généraux --- */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif; 
-    color: white; 
-    background-color: #040714; 
-    min-height: 100vh; 
-    position: relative; 
+* {
+    box-sizing: border-box;
 }
 
-/* --- Section Page d'Accueil avec Image de Fond --- */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #040714;
+    /* **Couleur d'origine conservée** */
+    min-height: 100vh;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------
+PAGE D'ACCUEIL (image de fond)
+------------------------------ */
 .page-accueil {
-    background-image: url(img/original_2.jpeg); /* REMPLACEZ CE CHEMIN */
+    background-image: url("img/original_2.jpeg");
+    /* **chemin original conservé** */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     position: relative;
     background-color: rgba(0, 0, 0, 0.3);
-    background-blend-mode: multiply; 
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
-/* --- Header et Bouton S'IDENTIFIER --- */
+/* Header et bouton S'IDENTIFIER */
 .header-identification {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    padding: 15px 30px; 
+    padding: 15px 30px;
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     align-items: center;
-    z-index: 10;
+    z-index: 20;
 }
 
 .btn-identification {
-    padding: 8px 25px; 
-    border: 1px solid white; 
+    padding: 8px 25px;
+    border: 1px solid white;
     border-radius: 4px;
-    color: white; 
-    background-color: black; 
+    color: white;
+    background-color: black;
+    /* **conservé** */
     text-decoration: none;
-    font-weight: 700; 
+    font-weight: 700;
     font-size: 13px;
-    letter-spacing: 1px; 
+    letter-spacing: 1px;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .btn-identification:hover {
-    background-color: #333; 
-    color: white; 
-    border-color: white; 
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-color: white;
 }
 
-/* --- Section principale et Texte --- */
+/* Contenu principal centré */
 .contenu-principal {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
+    /* laisse la place au header */
     text-align: center;
-    position: relative; 
-    
+    width: 100%;
+    padding: 6vh 4vw;
+    position: relative;
+    z-index: 5;
 }
 
 .message-central {
-   max-width: 2000px; 
-    padding: 10px;
-    /* Ajustement de la position verticale pour remonter le contenu */
-    margin-top: -150px; 
-    margin-top: 15%;
+    width: min(1100px, 92%);
+    padding: 10px 16px;
+    margin: 0 auto;
+    /* position verticale douce : pas de margin-top négatif qui casse sur mobile */
 }
 
+/* Titres et textes — tailles fluides */
 h1 {
-    /* Nouvelle taille de police pour le titre */
-    font-size: 3rem; 
-    line-height: 1.1; 
-    margin: 0 0 20px 0; 
+    font-size: clamp(1.4rem, 3.6vw, 3rem);
+    line-height: 1.08;
+    margin: 0 0 18px 0;
     font-weight: 700;
+    text-wrap: balance;
 }
 
 .slogan {
-    font-size: 1.2rem; 
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
     font-weight: 400;
-    margin-bottom: 25px; 
+    margin-bottom: 18px;
 }
 
 .instruction {
-    font-size: 1rem; 
-    color: rgba(255, 255, 255, 0.8); 
-    margin-bottom: 20px;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 14px;
 }
 
-/* --- Formulaire et Alignement --- */
+/* Formulaire et alignement (responsive) */
 .formulaire-email {
     display: flex;
+    gap: 0;
     margin: 0 auto;
-    max-width: 500px; 
-    border-radius: 4px; 
-    overflow: hidden; 
+    max-width: 600px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    justify-content: center;
 }
 
 #email-address {
-    flex-grow: 1; 
-    padding: 18px 15px; 
-    font-size: 16px;
+    flex: 1 1 auto;
+    padding: 14px 14px;
+    font-size: 1rem;
     border: none;
-    background-color: rgba(255, 255, 255, 0.2); 
+    background-color: rgba(255, 255, 255, 0.12);
     color: white;
-    border-radius: 0; 
+    min-width: 0;
+    /* important pour flex sur petits écrans */
 }
 
 #email-address::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Bouton d'inscription — **couleurs conservées** */
 .btn-inscription {
-    padding: 18px 25px; 
-    font-size: 16px;
-    font-weight: bold;
-    color: white; 
-    background-color: #0072d2; 
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    background-color: #05d6e8;
+    /* **conservé** */
     border: none;
-    border-radius: 0; 
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .btn-inscription:hover {
-    background-color: #0090ff; 
+    background-color: #02D6E8;
 }
 
-/* --- Texte d'offre et Notes de bas de page (Textes grisés) --- */
+/* Texte d'offre et notes */
 .offre-speciale {
-    font-size: 12px; 
-    color: rgba(255, 255, 255, 0.6); 
-    margin-top: 25px; 
-    margin-bottom: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 18px;
+    margin-bottom: 8px;
 }
 
 .notes-bas-de-page {
-    margin-top: 15px; 
-    font-size: 11px; 
-    color: rgba(255, 255, 255, 0.5); 
+    margin-top: 12px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .notes-bas-de-page p {
     font-size: 11px;
-    margin: 3px 0;
+    margin: 4px 0;
 }
 
-/* --- Flèche de défilement --- */
+/* Flèche de défilement (conserve look) */
 .scroll-down {
     position: absolute;
-    bottom: 20px; 
+    bottom: 20px;
     left: 50%;
-    transform: translateX(-50%); 
-    z-index: 2; 
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 .arrow-down {
     display: block;
-    font-size: 40px; 
-    line-height: 1; 
+    font-size: clamp(28px, 5.5vw, 40px);
+    line-height: 1;
     color: white;
     text-decoration: none;
-    opacity: 0.8; 
+    opacity: 0.9;
     transition: opacity 0.3s;
-    animation: bounce 2s infinite; 
+    animation: bounce 2.4s infinite;
 }
 
 .arrow-down:hover {
     opacity: 1;
 }
 
+/* animation bounce simple */
+@keyframes bounce {
 
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
 
+    40% {
+        transform: translateX(-50%) translateY(-8px);
+    }
 
-/* FIN PAGE DACCUEIL  */
+    60% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
 
-
-/* --- SECTION SECONDAIRE "SEULEMENT SUR DISNEY+ --- */
-
+/* ------------------------------
+SECTION SECONDAIRE "DISNEY"
+------------------------------ */
 .disney {
-    /* REMPLACEZ PAR LE CHEMIN DE L'IMAGE DE FOND POUR CETTE SECTION */
-    background-image: url(img/original_4.jpeg); 
+    background-image: url("img/original_4.jpeg");
+    /* **chemin conservé** */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
-    align-items: flex-start; 
-    
-    padding-top: 150px; 
-    /* CORRECTION : Réduit le padding pour rapprocher le texte du bord gauche */
-    padding-left: 5%; 
-    
+    align-items: flex-start;
+    padding-top: 200px;
+    padding-left: 5%;
     position: relative;
-    color: white;
+    color: #B7B8BD;
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: multiply;
 }
 
-/* Le div conteneur pour le texte */
-.disney > div {
-    /* CORRECTION : Réduit la largeur du conteneur pour aider à couper la ligne de description */
-    max-width: 400px; 
+.disney>div {
+    max-width: 400px;
     padding: 0;
-    align-self: auto; 
-    margin-bottom: 0; 
+    margin-bottom: 0;
     text-align: left;
 }
 
 .disney h2 {
-    font-size: 2.5rem; 
-    line-height: 1.1;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    line-height: 1.08;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .disney .description {
-    /* CORRECTION : Réduit la taille de la police */
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
     line-height: 1.5;
-    margin-bottom: 15px; 
-    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 .disney .copyright {
-    font-size: 0.4rem; 
-    color: rgba(255, 255, 255, 0.6); 
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
 }
-/* --- SECTION SECONDAIRE FIN "SEULEMENT SUR DISNEY+" --- */
 
-
-/* --- SECTION ABONNEMENT --- */
-
+/* ------------------------------
+SECTION ABONNEMENT
+------------------------------ */
 .Abonnement {
     background-color: #040714;
     color: #fff;
-    padding: 80px 0;
+    padding: 60px 4vw;
     font-family: Arial, sans-serif;
 }
 
 .abonnement-container {
-    max-width: 1000px; /* Limite la largeur du contenu */
+    max-width: 1000px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .Abonnement h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.6rem, 2.8vw, 2.5rem);
     font-weight: 700;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 36px;
 }
-
-/* ---- TABLEAU D'ABONNEMENT ----*/
 
 .table-wrapper {
-    overflow-x: auto; /* Pour le défilement horizontal sur petits écrans */
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
+/* tableau : garde le rendu visuel mais permet scroll horizontal sur petit écran */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: transparent; /* Le fond est géré par la section */
+    background-color: transparent;
     text-align: center;
+    min-width: 640px;
+    /* permet un rendu lisible et scroll horizontal sur petit écran */
 }
 
-/* Style de l'en-tête */
 thead th {
-    padding: 15px;
+    padding: 12px;
     border-bottom: 2px solid #333;
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: 600;
 }
 
-/* Style des cellules de données */
 tbody td {
-    padding: 18px 10px; /* Plus d'espace vertical */
+    padding: 14px 10px;
     border-top: 1px solid #333;
     font-size: 1rem;
     color: #fff;
 }
 
-/* Première colonne (Description des fonctionnalités) */
 tbody td:first-child {
-    text-align: left; /* Alignement à gauche comme sur l'image */
-    font-weight: 400; /* Poids normal */
-    color: #ccc; /* Texte gris clair */
+    text-align: left;
+    font-weight: 400;
+    color: #ccc;
 }
 
-/* Colonne Premium (Arrière-plan sombre) */
 table th.premium-col,
 table td:nth-child(4) {
-    background-color: #1a1e23; /* Couleur de fond foncée pour la colonne Premium */
+    background-color: #1a1e23;
 }
 
-/* Ligne des prix */
 .price-row td {
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: 600;
-    padding: 25px 10px; /* Plus de padding pour cette ligne */
+    padding: 18px 10px;
 }
 
-/* Liens de prix */
 .price-row a {
     color: #fff;
-    text-decoration: none; /* Pas de soulignement */
+    text-decoration: none;
     font-weight: 600;
 }
 
-/* Style pour la coche (✔) */
 .feature-check {
-    color: #ffffff; /* Couleur bleue pour la coche */
+    color: #ffffff;
     font-size: 1.2em;
     font-weight: bold;
 }
 
-/* --- NOTES SOUS LE TABLEAU --- */
+/* notes sous le tableau */
 .notes {
     text-align: left;
     margin-top: 20px;
@@ -325,354 +357,419 @@ table td:nth-child(4) {
 }
 
 .note-simple {
-    font-size: 0.9em;
+    font-size: 0.95em;
     color: #AAA;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .note-detail {
-    font-size: 0.75em; /* Très petite taille pour le texte légal */
+    font-size: 0.78em;
     line-height: 1.4;
-    color: #777; /* Couleur très grisée */
+    color: #777;
 }
 
-.note-detail a {
-    color: #ffffff; /* Lien bleu dans le texte légal */
-    text-decoration: underline;
-}
-
-/*FIN TABLEAU */
-
-
-
-
-/*--ADS--*/
-
-
-/* --- SECTION 3 : REGARDEZ SELON VOS ENVIES (.ADS) --- */
+/* ------------------------------
+SECTION ADS
+------------------------------ */
 .ADS {
-    background-color: #040714; /* Fond bleu nuit très foncé */
+    background-color: #040714;
     color: white;
-    padding: 80px 0; /* Espacement en haut et en bas de la section */
-    text-align: center; /* Centre le titre et la description par défaut */
-}
-
-/* --- Tête de section (Titre et slogan) --- */
-.ADS .header-ads {
-    margin-bottom: 50px;
-}
-
-.ADS h3 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-}
-
-.ADS .header-ads p {
-    font-size: 1.1rem;
-    color: #CCC;
-    margin: 0 auto;
-    max-width: 600px;
-}
-
-/* --- Image centrale (Composition des appareils) --- */
-.ADS .content-row {
-    margin-bottom: 80px; /* Espace entre l'image et les avantages */
-}
-
-.ADS .main-content-image {
-    max-width: 80%; /* Assure que l'image est responsive */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    /* Ajustement de la hauteur si nécessaire, basé sur la composition */
-}
-
-/* --- Ligne des bénéfices (Disposition horizontale) --- */
-.ADS .benefits-row {
-    display: flex;
-    justify-content: center; /* Centre les trois colonnes */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.ADS .benefit-item {
-    flex: 1; /* Chaque élément prend un tiers de l'espace disponible */
-    padding: 0 20px;
+    padding: 60px 4vw;
     text-align: center;
 }
 
-.ADS .benefit-icon {
-    /* Stylisation de l'icône si c'est une image */
-    width: 60px; /* Taille de l'icône */
+.ADS .main-content-image {
+    max-width: 100%;
     height: auto;
-    margin-bottom: 15px;
-    /* Si l'icône est entourée d'un cercle (comme dans l'image) */
-    /* border: 1px solid #0072d2; */
-    /* border-radius: 50%; */
-    /* padding: 10px; */
+    display: block;
+    margin: 0 auto;
 }
 
-/* --- Texte des bénéfices --- */
+.ADS .benefits-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 36px auto 0 auto;
+    padding: 0 12px;
+}
+
+.ADS .benefit-item {
+    flex: 1 1 240px;
+    padding: 0 12px;
+    text-align: center;
+    max-width: 340px;
+}
+
+.ADS .benefit-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 14px;
+}
+
 .ADS .benefit-item p:first-of-type {
-    /* Titre du bénéfice (ex: Un divertissement sans fin) */
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 10px 0;
+    margin: 6px 0;
 }
 
 .ADS .benefit-item .detail {
-    /* Texte de description (ex: Découvrez des milliers d'heures...) */
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #AAA;
     line-height: 1.4;
 }
 
-/*-- FIN ADS --*/
-
-
-
-/*onglet FAQ
-<style>
-  /* ----------------------------------------------------------------- */
-  /* Styles pour l'élargissement, le fond, etc. (Conservé et amélioré) */
-  /* ----------------------------------------------------------------- */
-  .FAQ {
-    max-width: 1300px; /* Largeur du conteneur principal */
+/* ------------------------------
+SECTION FAQ
+------------------------------ */
+.FAQ {
     margin: 20px auto;
-    background-color: #040714; 
-    color: white; 
-    font-family: "InspireTWDC";
+    background-color: #040714;
+    color: white;
     border-radius: 4px;
-    padding: 0; /* On retire le padding du conteneur pour que les details touchent les bords */
-  }
+    padding: 18px 4vw;
+    width: 100%;
+}
 
-  .FAQ h4 {
+.FAQ h4 {
     font-size: 1.5em;
-    padding: 20px 20px 10px;
-    margin: 0;
-  }
-  
-  /* ----------------------------------------------------------------- */
-  /* NOUVEAU : Ajout de l'écart entre les blocs */
-  /* ----------------------------------------------------------------- */
-  
-  /* Cible chaque élément <details> */
-  .FAQ details {
-    
-    margin-bottom: 8px; 
-    background-color: #13151D; /* Un très léger fond différent pour accentuer l'espacement */
-    border-radius: 4px; /* Arrondi pour séparer visuellement */
-    /* Retire la bordure de séparation interne pour ne conserver que l'écart */
-    border: none; 
-    padding: 0 20px;
-    overflow: hidden; /* Assure que le border-radius fonctionne bien */
-  }
-  /* Retire la marge du dernier élément pour éviter un espace inutile en bas du conteneur */
-  .FAQ details:last-child {
-    margin-bottom: 0;
-  }
-  
-  /* ----------------------------------------------------------------- */
-  /* Styles du titre (Summary) et de la réponse (Contenu) */
-  /* ----------------------------------------------------------------- */
+    padding: 8px 0 10px 0;
+    margin: 0 0 12px 0;
+}
 
-  summary {
+/* chaque details */
+.FAQ details {
+    margin-bottom: 8px;
+    background-color: #13151D;
+    border-radius: 4px;
+    border: none;
+    padding: 0 18px;
+    overflow: hidden;
+}
+
+summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: bold;
     cursor: pointer;
-    padding: 20px 0;
-    list-style: none;
+    padding: 16px 0;
     user-select: none;
-    outline: none;
-  }
-
-  summary::after {
-    content: '+';
-    font-size: 1.5em;
-    line-height: 1;
-    margin-left: 15px;
-    transition: transform 0.2s;
-  }
-
-  details[open] summary::after {
-    content: '−';
-  }
-
-  .reponse-contenu {
-    padding-bottom: 20px;
-    border-top: 1px solid #333; /* Ajoute une ligne fine entre le titre et la réponse, comme souvent vu */
-    padding-top: 20px;
-  }
-
-  .reponse-contenu p, 
-  .reponse-contenu ul,
-  .reponse-contenu ol {
-    margin-top: 0;
-  }
-  
-  /* Styles de listes et liens... (comme précédemment) */
-  .reponse-contenu ul, .reponse-contenu ol {
-    list-style-position: inside;
-    padding-left: 20px;
-  }
-  .reponse-contenu li {
-    padding-bottom: 8px;
-    margin-left: -20px;
-  }
-  .reponse-contenu a {
-    color: #ffffff;
-    text-decoration: none;
-  }
-</style>
-
-
-/* ---  ACCESSIBLE SUR VOS APPAREILS PRÉFÉRÉS  --- */
-
-
-.appareils {
-    min-height: 100vh; 
-    --icon-size: 80px; 
-    background-color: #040714;
-    color: white;
-    padding: 100px 0;
-    text-align: center; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
 }
 
-/* Le titre est centré grâce à text-align: center sur le parent (.appareils) */
-.appareils h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 70px;
+summary::after {
+    content: '+';
+    font-size: 1.2em;
+    margin-left: 15px;
+}
+
+details[open] summary::after {
+    content: '−';
+}
+
+.reponse-contenu {
+    padding: 16px 0 20px 0;
+    border-top: 1px solid #333;
+}
+
+.reponse-contenu p,
+.reponse-contenu ul,
+.reponse-contenu ol {
+    margin-top: 0;
+}
+
+.reponse-contenu ul,
+.reponse-contenu ol {
+    list-style-position: inside;
+    padding-left: 18px;
+}
+
+/* ------------------------------
+SECTION APPAREILS
+------------------------------ */
+.appareils {
+    min-height: auto;
+    background-color: #040714;
+    color: white;
+    padding: 60px 4vw;
     text-align: center;
+}
+
+.appareils h2 {
+    font-size: clamp(1.25rem, 2.2vw, 2.5rem);
+    margin-bottom: 32px;
 }
 
 .appareils-row {
     display: flex;
     justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 12px;
 }
 
 .appareil-item {
-    flex: 1; 
-    padding: 0 15px;
+    list-style: none;
+    flex: 1 1 220px;
+    max-width: 300px;
+    padding: 0 12px;
     text-align: center;
 }
 
-/* --- LOGOS / ICÔNES --- */
 .appareil-icon {
-    width: 250px; 
+    width: 180px;
+    max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto 20px auto; 
+    margin: 0 auto 14px;
 }
 
-/* --- Titres des catégories (Télévisions, Ordinateurs, etc.) --- */
-.appareil-item h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0 0 30px 0;
-}
-
-/* --- Liste des appareils --- */
-.liste-appareils {
-    list-style: none;
-    padding: 0;
+/* Liste dans la section appareils */
+.appareils ul {
+    list-style-type: none; /* Supprime les points */
+    padding-left: 0; /* Enlève l’espace de gauche */
     margin: 0;
+    color: #B7B8BD; /* Couleur du texte */
 }
 
-.liste-appareils li {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: #AAA; 
+/* Applique aussi la couleur directement aux éléments de liste */
+.appareils li {
+    color: #B7B8BD;
 }
-
-
-
-
-
-
-
-
-/* --- FOOTER --- */
+/* ------------------------------
+FOOTER
+------------------------------ */
 footer {
-    background-color: #040714; /* Couleur de fond sombre du footer */
+    background-color: #040714;
     color: #AAA;
-    padding: 40px 0;
+    padding: 40px 4vw;
     font-size: 14px;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center; /* Centre tous les éléments comme le logo et les liens */
-    padding: 0 20px;
-}
-
-/* --- Logo --- */
-.footer-logo {
-    margin-bottom: 30px;
+    text-align: center;
+    padding: 0 12px;
 }
 
 .footer-logo img {
-    /* Ajustez la taille du logo selon votre fichier */
-    width: 80px; 
+    width: 120px;
     height: auto;
+    margin-bottom: 18px;
 }
 
-/* --- Lignes de liens --- */
 .footer-links-row {
     list-style: none;
     padding: 0;
-    margin: 10px 0; /* Petit espace entre les lignes de liens */
+    margin: 10px 0;
     display: flex;
-    justify-content: center; /* Centre les liens horizontalement */
-    flex-wrap: wrap; /* Permet aux liens de passer à la ligne sur les petits écrans */
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .footer-links-row li {
-    padding: 0 12px; /* Espacement entre chaque lien */
-    margin-bottom: 5px; /* Pour l'espacement lors du retour à la ligne */
+    padding: 0;
 }
 
 .footer-links-row a {
-    color: #AAA; /* Couleur des liens (gris clair) */
+    color: #AAA;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .footer-links-row a:hover {
-    color: white; /* Effet de survol */
+    color: white;
 }
 
-/* --- Sélecteur de langue (si utilisé) --- */
-.language-selector a {
-    font-weight: bold; /* Le texte de la langue est souvent en gras */
-    color: white !important; /* Pour le faire ressortir */
+/* language selector wrapper (conserve ton style original) */
+.language-row-wrapper {
+    margin: 20px auto 35px auto;
+    border: 1px solid #222538;
+    border-radius: 4px;
+    padding: 10px 0;
+    max-width: 350px;
+    transition: border-color 0.2s;
 }
 
-/* --- Gérer les préférences de confidentialité --- */
-.privacy-settings {
-    /* Style spécifique si le lien de confidentialité est un bouton */
-    /* text-decoration: underline; */ 
+.language-row-wrapper.is-open {
+    border-color: white;
 }
 
-/* --- Note et Copyright --- */
-.footer-note, .footer-copyright {
-    font-size: 0.75rem; /* Plus petit */
-    color: #777; /* Plus foncé */
-    margin: 5px 0;
+.language-list-solo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
-.footer-note {
-    margin-top: 30px;
+.language-display {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+/* ------------------------------
+RESPONSIVE — Media queries
+------------------------------ */
+
+/* Tablette / petits laptops */
+@media (max-width: 1024px) {
+    .disney {
+        padding-top: 120px;
+        padding-left: 5%;
+        background-position: center;
+    }
+
+    .Abonnement {
+        padding: 48px 4vw;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+
+/* Smartphones / petits écrans */
+@media (max-width: 768px) {
+    .header-identification {
+        padding: 10px 16px;
+    }
+
+    .btn-identification {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+
+    .contenu-principal {
+        padding: 8vh 4vw;
+        min-height: calc(100vh - 64px);
+    }
+
+    .message-central {
+        padding: 6px 10px;
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 5.2vw, 1.9rem);
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .formulaire-email {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        max-width: 480px;
+    }
+
+    #email-address {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .btn-inscription {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .disney {
+        padding-top: 90px;
+        padding-left: 4vw;
+        background-position: center top;
+        align-items: center;
+    }
+
+    .disney>div {
+        max-width: 92%;
+        text-align: center;
+        margin: 0 auto 24px auto;
+    }
+
+    .ADS .benefits-row,
+    .appareils-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .appareil-icon {
+        width: 150px;
+    }
+
+    .footer-links-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+    .header-identification {
+        padding: 8px 12px;
+    }
+
+    .message-central {
+        padding-top: 6vh;
+    }
+
+    h1 {
+        font-size: clamp(1rem, 6.5vw, 1.5rem);
+    }
+
+    .offre-speciale,
+    .notes-bas-de-page {
+        font-size: 11px;
+    }
+
+    .disney {
+        padding-top: 70px;
+        padding-left: 4vw;
+    }
+
+    .Abonnement {
+        padding: 32px 3vw;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    /* le table-wrapper permettra le scroll horizontal */
+    .arrow-down {
+        bottom: 14px;
+    }
+}
+
+/* Force les images à être responsives (ne pas "supprimer" les images) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* utilitaires */
+.hidden-mobile {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .hidden-mobile {
+        display: initial;
+    }
 }
